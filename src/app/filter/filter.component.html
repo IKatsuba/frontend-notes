@@ -1,0 +1,18 @@
+<form [formGroup]="form">
+  <mat-form-field class="field-language">
+    <mat-select placeholder="Language" formControlName="language">
+      <mat-option *ngFor="let lang of languages" [value]="lang">
+        {{lang | uppercase}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="field-sortBy">
+    <mat-select placeholder="Sort by" formControlName="sortBy">
+      <mat-option *ngFor="let type of sortBy" [value]="type">
+        {{type}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-paginator [length]="count" [pageSize]="form.value.pageSize" [pageSizeOptions]="[5, 10, 20, 50, 100]" (page)="onPage($event)"></mat-paginator>
+</form>

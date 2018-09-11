@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~normalize.css/normalize.css";
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import '~@angular/material/theming';
+
+//$primary: map-get($theme, primary);
+//$accent: map-get($theme, accent);
+
+body {
+  max-width: 700px;
+  margin: 0 auto;
+  background: map_get($mat-dark-theme-background, background);
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+a {
+  color: map_get($mat-dark-theme-foreground, text);
+  text-decoration: none;
+}
