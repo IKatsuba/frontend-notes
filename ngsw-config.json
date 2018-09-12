@@ -12,7 +12,8 @@
           "/*.js"
         ]
       }
-    }, {
+    },
+    {
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
@@ -20,6 +21,20 @@
         "files": [
           "/assets/**"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "newsApi",
+      "urls": [
+        "https://newsapi.org/v2/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 2,
+        "maxAge": "15m",
+        "timeout": "10s",
+        "strategy": "performance"
       }
     }
   ]

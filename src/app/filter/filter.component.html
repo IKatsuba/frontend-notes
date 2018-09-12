@@ -14,7 +14,7 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-paginator [length]="count"
+  <mat-paginator class="paginator" [length]="count"
                  [pageSize]="form.value.pageSize"
                  [pageSizeOptions]="[5, 10, 20, 50, 100]"
                  (page)="onPage($event)"></mat-paginator>
