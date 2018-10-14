@@ -1,8 +1,8 @@
 {
   "name": "frontend-notes",
   "short_name": "frontend-notes",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#424242",
+  "background_color": "#303030",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
