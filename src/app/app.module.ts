@@ -5,11 +5,22 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule, MatPaginatorModule, MatSelectModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatChipsModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule,
+  MatPaginatorModule,
+  MatSelectModule
+} from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './filter/filter.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RavenService } from '@core/services';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -27,9 +38,13 @@ import { RavenService } from '@core/services';
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    AngularFireModule.initializeApp(environment.firebase, 'frontend-notes'),
+    AngularFirestoreModule.enablePersistence(),
+    MatChipsModule,
+    MatIconModule
   ],
-  providers: [{ provide: ErrorHandler, useClass: RavenService }],
+  providers: [{provide: ErrorHandler, useClass: RavenService}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

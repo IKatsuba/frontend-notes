@@ -22,6 +22,15 @@
           "/assets/**"
         ]
       }
+    },
+    {
+      "name": "external",
+      "installMode": "lazy",
+      "resources": {
+        "urls": [
+          "https://fonts.googleapis.com/icon"
+        ]
+      }
     }
   ],
   "dataGroups": [
@@ -31,7 +40,7 @@
         "https://newsapi.org/v2/**"
       ],
       "cacheConfig": {
-        "maxSize": 2,
+        "maxSize": 1,
         "maxAge": "15m",
         "timeout": "10s",
         "strategy": "performance"

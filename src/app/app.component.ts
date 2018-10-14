@@ -20,7 +20,6 @@ export class AppComponent implements AfterContentInit {
   public ngAfterContentInit(): void {
     this.filter.form.valueChanges.pipe(
       startWith(this.filter.form.value),
-      tap(() => console.count('CO')),
       debounceTime(1000),
       switchMap<FilterModel, ResponseModel<NewsModel>>(values => this.news.everything(values)),
       tap((response) => {
@@ -28,5 +27,9 @@ export class AppComponent implements AfterContentInit {
         this.count = response.totalResults;
       })
     ).toPromise();
+  }
+
+  public trackByFn(index) {
+    return index;
   }
 }

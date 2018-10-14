@@ -5,7 +5,16 @@
 export const environment = {
   production: false,
   API_URL: 'https://newsapi.org/v2/',
-  DSN: null
+  NEWS_API_KEY: '022242c86959436495a04d00b0635a24',
+  DSN: null,
+  firebase: {
+    apiKey: 'AIzaSyBtkdUrqNoa6perRttyxhAEqIOsw98InEQ',
+    authDomain: 'frontend-notes.firebaseapp.com',
+    databaseURL: 'https://frontend-notes.firebaseio.com',
+    projectId: 'frontend-notes',
+    storageBucket: 'frontend-notes.appspot.com',
+    messagingSenderId: '981602356414'
+  }
 };
 
 /*

@@ -1,50 +1,45 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { FilterModel, NewsModel, ResponseModel } from '@core/models';
 import { QueryService } from '@core/services/query.service';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsApiService {
-  constructor(private http: HttpClient, private q: QueryService) {
+  public query$: Observable<any | undefined>;
+  private queryRef: AngularFirestoreDocument<{ excludeDomains?: string[], q?: string }>;
+
+  constructor(private http: HttpClient,
+              private q: QueryService,
+              private db: AngularFirestore) {
+
+    this.queryRef = this.db.collection('params').doc('newsQuery');
+    this.query$ = this.queryRef.valueChanges();
   }
 
   public everything({language, sortBy, page, pageSize}: FilterModel): Observable<ResponseModel<NewsModel>> {
-    return this.http.get<ResponseModel<NewsModel>>(environment.API_URL + 'everything', {
-      params: {
-        language,
-        sortBy,
-        q: this.q.or(
-          'javascript',
-          this.q.and('android', 'flutter'),
-          this.q.and('ios', 'flutter'),
-          'typescript',
-          'css',
-          'scss',
-          'nodejs',
-          'node.js',
-          'angular',
-          'react',
-          'npm',
-          'browsers',
-          'браузеры',
-          'web',
-          'фронтенд',
-          'frontend',
-          this.q.not('\'java\'', '\'разработка игр\'', 'e-commerce', 'iptelefon')
-        ).toString(),
-        page: page.toString(),
-        pageSize: pageSize.toString(),
-        excludeDomains: 'theoryandpractice.ru,dou.ua,linux.org.ru,fishki.net,stackoverflow.com,' +
-          'gamasutra.com,nreionline.com,cnews.ru,webcafe.bg,tass.ru,rambler.ru,yandex.ru,comss.ru,' +
-          'securitylab.ru,lifehacker.ru,lenta.ru'
-      },
-      headers: {
-        'X-Api-Key': '022242c86959436495a04d00b0635a24'
-      }
-    });
+    return combineLatest(this.query$).pipe(
+      switchMap(([{q, domains}]) => {
+        return this.http.get<ResponseModel<NewsModel>>(environment.API_URL + 'everything', {
+          params: {
+            language,
+            sortBy,
+            q,
+            page: page.toString(),
+            pageSize: pageSize.toString(),
+            domains: domains.join(',')
+          },
+          headers: {
+            'X-Api-Key': environment.NEWS_API_KEY
+          }
+        });
+      })
+    );
   }
 }
+
