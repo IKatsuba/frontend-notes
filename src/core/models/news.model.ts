@@ -1,5 +1,5 @@
 export interface NewsModel {
-  source: {id: number; name: string};
+  source: { id: number; name: string };
   author: string;
   title: string;
   description: string;
