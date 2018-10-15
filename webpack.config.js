@@ -5,7 +5,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.FIREBASE': process.env.FIREBASE,
       'process.env.NEWS': process.env.NEWS,
-      'process.env.DSN': process.env.DSN
+      'process.env.DSN': JSON.stringify(process.env.DSN)
     })
   ]
 };
