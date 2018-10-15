@@ -19,7 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './filter/filter.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RavenService } from '@core/services';
-import { AngularFireModule } from '@angular/fire';
+import { AngularFireModule, FirebaseNameOrConfigToken, FirebaseOptionsToken } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
@@ -39,12 +39,16 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     MatFormFieldModule,
     MatSelectModule,
     MatPaginatorModule,
-    AngularFireModule.initializeApp(environment.firebase, 'frontend-notes'),
+    AngularFireModule,
     AngularFirestoreModule.enablePersistence(),
     MatChipsModule,
     MatIconModule
   ],
-  providers: [{provide: ErrorHandler, useClass: RavenService}],
+  providers: [
+    {provide: ErrorHandler, useClass: RavenService},
+    {provide: FirebaseOptionsToken, useValue: environment.fb},
+    {provide: FirebaseNameOrConfigToken, useValue: 'frontend-notes'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

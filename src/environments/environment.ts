@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   DSN: null,
-  news: <{ apiUrl: string, apiKey: string }>process.env.NEWS,
-  firebase: process.env.FIREBASE
+  news: env.NEWS,
+  fb: env.FB
 };
 
 /*

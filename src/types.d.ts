@@ -1,1 +1,1 @@
-declare const process: { env: any };
+declare const env: any;
