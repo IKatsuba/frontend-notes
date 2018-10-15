@@ -25,7 +25,7 @@ export class NewsApiService {
   public everything({language, sortBy, page, pageSize}: FilterModel): Observable<ResponseModel<NewsModel>> {
     return combineLatest(this.query$).pipe(
       switchMap(([{q, domains}]) => {
-        return this.http.get<ResponseModel<NewsModel>>(environment.API_URL + 'everything', {
+        return this.http.get<ResponseModel<NewsModel>>(environment.news.apiUrl + 'everything', {
           params: {
             language,
             sortBy,
@@ -35,7 +35,7 @@ export class NewsApiService {
             domains: domains.join(',')
           },
           headers: {
-            'X-Api-Key': environment.NEWS_API_KEY
+            'X-Api-Key': environment.news.apiKey
           }
         });
       })
