@@ -16,16 +16,18 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
-import { FilterComponent } from './filter/filter.component';
+import { FilterComponent } from './filter';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RavenService } from '@core/services';
 import { AngularFireModule, FirebaseNameOrConfigToken, FirebaseOptionsToken } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { NewsListComponent } from './news-list';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FilterComponent
+    FilterComponent,
+    NewsListComponent
   ],
   imports: [
     BrowserModule,

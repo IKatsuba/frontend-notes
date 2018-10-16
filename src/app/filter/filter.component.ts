@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Languages, SortTypes } from '@core/enums';
+import { concat, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-filter',
@@ -26,8 +27,12 @@ export class FilterComponent {
     page: [1]
   });
 
-  constructor(private fb: FormBuilder) {
+  public changes: Observable<any> = concat(
+    of(this.form.value),
+    this.form.valueChanges
+  );
 
+  constructor(private fb: FormBuilder) {
   }
 
   public onPage({length, pageIndex, pageSize, previousPageIndex}) {
