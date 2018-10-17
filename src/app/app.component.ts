@@ -2,8 +2,8 @@ import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component
 import { NewsApiService } from '@core/services';
 import { FilterComponent } from './filter';
 import { debounceTime, mergeMap, tap } from 'rxjs/operators';
-import { FilterModel, NewsModel, ResponseModel } from '@core/models';
 import { Observable } from 'rxjs';
+import { ArticleResponse, EverythingPayload } from '@katsuba/newsapi';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,8 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements AfterContentInit {
   @ViewChild('filter') filter: FilterComponent;
-  public news$: Observable<ResponseModel<NewsModel>>;
+
+  public news$: Observable<ArticleResponse>;
   public count: number;
 
   constructor(public news: NewsApiService,
@@ -23,7 +24,7 @@ export class AppComponent implements AfterContentInit {
   public ngAfterContentInit(): void {
     this.news$ = this.filter.changes.pipe(
       debounceTime(1000),
-      mergeMap<FilterModel, ResponseModel<NewsModel>>(values => this.news.everything(values)),
+      mergeMap<EverythingPayload, ArticleResponse>(values => this.news.everything(values)),
       tap((res) => {
         this.count = res.totalResults;
         this.cd.markForCheck();

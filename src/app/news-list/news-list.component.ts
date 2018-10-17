@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NewsModel, ResponseModel } from '@core/models';
+import { ArticleResponse } from '@katsuba/newsapi';
 
 @Component({
   selector: 'app-news-list',
@@ -7,7 +7,7 @@ import { NewsModel, ResponseModel } from '@core/models';
   styleUrls: ['./news-list.component.scss']
 })
 export class NewsListComponent {
-  @Input() public news: ResponseModel<NewsModel>;
+  @Input() public news: ArticleResponse;
 
   public trackByFn(index, item) {
     return item.url;

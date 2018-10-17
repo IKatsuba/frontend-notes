@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Languages, SortTypes } from '@core/enums';
 import { concat, Observable, of } from 'rxjs';
+import { Languages, SortBy } from '@katsuba/newsapi';
 
 @Component({
   selector: 'app-filter',
@@ -10,7 +10,7 @@ import { concat, Observable, of } from 'rxjs';
 })
 export class FilterComponent {
   public languages = [Languages.RU, Languages.EN];
-  public sortBy = [SortTypes.PUBLISHED_AT, SortTypes.POPULARITY, SortTypes.RELEVANCY];
+  public sortBy = [SortBy.PUBLISHEDAT, SortBy.POPULARITY, SortBy.RELEVANCY];
 
   @Input() count: number;
 
@@ -22,7 +22,7 @@ export class FilterComponent {
     from: [null],
     to: [null],
     language: [Languages.RU],
-    sortBy: [SortTypes.PUBLISHED_AT],
+    sortBy: [SortBy.PUBLISHEDAT],
     pageSize: [10],
     page: [1]
   });

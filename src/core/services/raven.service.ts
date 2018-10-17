@@ -1,11 +1,16 @@
-import { ErrorHandler } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { ErrorHandler, Inject, InjectionToken } from '@angular/core';
+
+export const RAVEN_DSN = new InjectionToken('RAVEN_DSN');
 
 export class RavenService extends ErrorHandler {
   private raven;
 
+  constructor(@Inject(RAVEN_DSN) private ravenDSN: string) {
+    super();
+  }
+
   public async handleError(e) {
-    if (environment.DSN) {
+    if (this.ravenDSN) {
       if (!this.raven) {
         await this.initRaven();
       }
@@ -17,7 +22,7 @@ export class RavenService extends ErrorHandler {
 
   private async initRaven() {
     const Raven = await import('raven-js').then((m: any) => m.default);
-    Raven.config(environment.DSN).install();
+    Raven.config(this.ravenDSN).install();
     this.raven = Raven;
   }
 }

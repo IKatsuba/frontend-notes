@@ -18,10 +18,11 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './filter';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RavenService } from '@core/services';
+import { RAVEN_DSN, RavenService } from '@core/services';
 import { AngularFireModule, FirebaseNameOrConfigToken, FirebaseOptionsToken } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { NewsListComponent } from './news-list';
+import { NewsApi } from '@katsuba/newsapi';
 
 @NgModule({
   declarations: [
@@ -49,9 +50,12 @@ import { NewsListComponent } from './news-list';
   providers: [
     {provide: ErrorHandler, useClass: RavenService},
     {provide: FirebaseOptionsToken, useValue: environment.fb},
-    {provide: FirebaseNameOrConfigToken, useValue: 'frontend-notes'}
+    {provide: FirebaseNameOrConfigToken, useValue: 'frontend-notes'},
+    {provide: NewsApi, useFactory: () => new NewsApi(environment.news.apiKey)},
+    {provide: RAVEN_DSN, useValue: environment.DSN},
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule {
 }
