@@ -1,0 +1,18 @@
+@import "~@angular/material/theming";
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 15px;
+  display: block;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.secondary-toolbar-text {
+  font-weight: 400;
+}

@@ -9,11 +9,13 @@ import {
   MatButtonModule,
   MatCardModule,
   MatChipsModule,
+  MatDividerModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
   MatPaginatorModule,
-  MatSelectModule
+  MatSelectModule,
+  MatToolbarModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
 import { FilterComponent } from './filter';
@@ -33,19 +35,20 @@ import { NewsApi } from '@katsuba/newsapi';
   imports: [
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    AngularFireModule,
+    AngularFirestoreModule.enablePersistence(),
     BrowserAnimationsModule,
-    MatButtonModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatButtonModule,
     MatCardModule,
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
     MatPaginatorModule,
-    AngularFireModule,
-    AngularFirestoreModule.enablePersistence(),
     MatChipsModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule
   ],
   providers: [
     {provide: ErrorHandler, useClass: RavenService},
@@ -56,6 +59,5 @@ import { NewsApi } from '@katsuba/newsapi';
   ],
   bootstrap: [AppComponent]
 })
-
 export class AppModule {
 }

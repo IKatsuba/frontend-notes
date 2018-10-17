@@ -3,10 +3,7 @@
 @import '~@angular/material/theming';
 
 body {
-  max-width: 700px;
-  margin: 0 auto;
   background: map_get($mat-dark-theme-background, background);
-  padding: 15px 0;
 }
 
 mat-form-field {
@@ -16,4 +13,19 @@ mat-form-field {
 a {
   color: map_get($mat-dark-theme-foreground, text);
   text-decoration: none;
+}
+
+.light-icon-link {
+
+  width: 32px;
+  height: 32px;
+
+}
+
+.app-secondary-text {
+  color: $light-secondary-text;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
 }
