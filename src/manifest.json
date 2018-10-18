@@ -1,8 +1,8 @@
 {
-  "name": "frontend-notes",
-  "short_name": "frontend-notes",
+  "name": "FrontendNotes",
+  "short_name": "fn",
   "theme_color": "#424242",
-  "background_color": "#303030",
+  "background_color": "#C2185B",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
