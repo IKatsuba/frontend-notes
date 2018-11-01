@@ -27,7 +27,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "aot": true,
+            "statsJson": true
           },
           "configurations": {
             "production": {
@@ -46,7 +48,8 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "serviceWorker": true
+              "serviceWorker": true,
+              "statsJson": true
             }
           }
         },
