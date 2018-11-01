@@ -9,8 +9,6 @@ export const RAVEN_DSN = new InjectionToken('RAVEN_DSN');
   providedIn: 'root'
 })
 export class RavenService extends ErrorHandler {
-  private raven;
-
   constructor(@Inject(RAVEN_DSN) private ravenDSN: string) {
     super();
 
@@ -25,10 +23,6 @@ export class RavenService extends ErrorHandler {
     }
 
     super.handleError(e);
-  }
-
-  private async initRaven() {
-    init({dsn: this.ravenDSN});
   }
 
   public captureMessage(message: string, level?: Severity) {
