@@ -1,18 +1,23 @@
-<mat-card *ngFor="let card of news?.articles; trackBy: trackByFn">
-  <mat-card-header>
-    <img mat-card-avatar [src]="card.urlToImage" *ngIf="card.urlToImage">
-    <div mat-card-avatar *ngIf="!card.urlToImage"></div>
-    <mat-card-title>
-      <a [href]="card.url" target="_blank">
-        {{card.title}}
-      </a>
-    </mat-card-title>
-    <mat-card-subtitle>{{card.publishedAt | date}}, {{card.source.name}}, {{card.author}}</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>{{card.description}}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <a [href]="card.url" rel="noopener" target="_blank" mat-button color="primary">READ</a>
-  </mat-card-actions>
-</mat-card>
+<div class="scrollable">
+  <mat-card *ngFor="let card of news; trackBy: trackByFn; let i = index;"
+            (appIsVisible)="(i + 1) === news.length && fetch.emit()">
+    <mat-card-header>
+      <img mat-card-avatar [src]="card.urlToImage" *ngIf="card.urlToImage">
+      <div mat-card-avatar *ngIf="!card.urlToImage"></div>
+      <mat-card-title>
+        <a [href]="card.url" target="_blank">
+          {{card.title}}
+        </a>
+      </mat-card-title>
+      <mat-card-subtitle>{{card.publishedAt | date}}, {{card.source.name}}, {{card.author}}</mat-card-subtitle>
+
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{card.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a [href]="card.url" rel="noopener" target="_blank" mat-button color="primary">READ</a>
+    </mat-card-actions>
+  </mat-card>
+  <mat-spinner [diameter]="40"></mat-spinner>
+</div>

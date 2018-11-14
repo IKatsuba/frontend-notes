@@ -1,11 +1,14 @@
-<mat-toolbar color="primary" class="mat-elevation-z6">
-  <span class="app-secondary-text secondary-toolbar-text">Frontend</span><span>Notes</span>
-  <span class="toolbar-spacer"></span>
-  <a href="https://github.com/IKatsuba/frontend-notes" target="_blank" class="light-icon-link">
-    <img src="../assets/icons/GitHub-Mark-Light-32px.png">
-  </a>
-</mat-toolbar>
-<main>
+<header>
+  <mat-toolbar color="primary" class="mat-elevation-z6">
+    <span class="app-secondary-text secondary-toolbar-text">Frontend</span><span>Notes</span>
+    <span class="toolbar-spacer"></span>
+    <a href="https://github.com/IKatsuba/frontend-notes" target="_blank" class="light-icon-link">
+      <img src="../assets/icons/GitHub-Mark-Light-32px.png">
+    </a>
+  </mat-toolbar>
   <app-filter #filter [count]="count"></app-filter>
-  <app-news-list [news]="news$ | async"></app-news-list>
+</header>
+
+<main>
+  <app-news-list [news]="news$ | async" (fetch)="fetch()"></app-news-list>
 </main>

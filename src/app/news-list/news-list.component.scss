@@ -2,6 +2,11 @@ mat-card {
   margin-top: 20px;
 }
 
-mat-card-content {
-  overflow: hidden;
+.scrollable {
+  max-height: 100%;
+  overflow: auto;
+}
+
+mat-spinner {
+  margin: 40px auto;
 }

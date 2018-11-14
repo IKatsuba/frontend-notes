@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { concat, Observable, of } from 'rxjs';
+import { concat, merge, Observable, of } from 'rxjs';
 import { Languages, SortBy } from '@katsuba/newsapi';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-filter',
@@ -33,13 +34,11 @@ export class FilterComponent {
   );
 
   constructor(private fb: FormBuilder) {
-  }
-
-  public onPage({length, pageIndex, pageSize, previousPageIndex}) {
-    this.form.setValue({
-      ...this.form.value,
-      pageSize,
-      page: pageIndex + 1
-    });
+    merge(
+      this.form.get('sortBy').valueChanges,
+      this.form.get('language').valueChanges
+    ).pipe(
+      tap(() => this.form.get('pageSize').setValue(10))
+    ).toPromise();
   }
 }

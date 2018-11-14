@@ -8,12 +8,10 @@ import { environment } from '../environments/environment';
 import {
   MatButtonModule,
   MatCardModule,
-  MatChipsModule,
-  MatDividerModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatPaginatorModule,
+  MatProgressSpinnerModule,
   MatSelectModule,
   MatToolbarModule
 } from '@angular/material';
@@ -25,6 +23,7 @@ import { AngularFireModule, FirebaseNameOrConfigToken, FirebaseOptionsToken } fr
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { NewsListComponent } from './news-list';
 import { NewsApi } from '@katsuba/newsapi';
+import { IsVisibleModule } from '@core/is-visible';
 
 @NgModule({
   declarations: [
@@ -45,10 +44,10 @@ import { NewsApi } from '@katsuba/newsapi';
     MatInputModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatPaginatorModule,
-    MatChipsModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    IsVisibleModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {provide: ErrorHandler, useClass: RavenService},
