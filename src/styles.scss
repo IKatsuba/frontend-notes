@@ -23,7 +23,7 @@ a {
 }
 
 .app-secondary-text {
-  color: $light-secondary-text;
+  color: rgba(map_get($mat-dark-theme-foreground, text), 0.85);
 }
 
 .toolbar-spacer {

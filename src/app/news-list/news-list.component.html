@@ -2,7 +2,7 @@
   <mat-card *ngFor="let card of news; trackBy: trackByFn; let i = index;"
             (appIsVisible)="(i + 1) === news.length && fetch.emit()">
     <mat-card-header>
-      <img mat-card-avatar [src]="card.urlToImage" *ngIf="card.urlToImage">
+      <img mat-card-avatar [src]="card.urlToImage" *ngIf="card.urlToImage" alt="News image">
       <div mat-card-avatar *ngIf="!card.urlToImage"></div>
       <mat-card-title>
         <a [href]="card.url" rel="noopener" target="_blank">
@@ -16,7 +16,7 @@
       <p>{{card.description}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <a [href]="card.url" rel="noopener" target="_blank" mat-button color="primary">READ</a>
+      <a [href]="card.url" rel="noopener" target="_blank" mat-button color="accent">READ</a>
     </mat-card-actions>
   </mat-card>
   <mat-spinner [diameter]="40"></mat-spinner>
