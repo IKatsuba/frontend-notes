@@ -13,6 +13,7 @@ import {
   MatInputModule,
   MatProgressSpinnerModule,
   MatSelectModule,
+  MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,6 +25,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { NewsListComponent } from './news-list';
 import { NewsApi } from '@katsuba/newsapi';
 import { IsVisibleModule } from '@core/is-visible';
+import { ShareModule } from '@core/share';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { IsVisibleModule } from '@core/is-visible';
     MatIconModule,
     MatToolbarModule,
     IsVisibleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ShareModule,
+    MatSnackBarModule
   ],
   providers: [
     {provide: ErrorHandler, useClass: RavenService},

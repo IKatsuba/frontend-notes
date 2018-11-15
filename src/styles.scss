@@ -29,3 +29,9 @@ a {
 .toolbar-spacer {
   flex: 1 1 auto;
 }
+$button-theme-primary: mat-palette($mat-teal, A400, A200, A700);
+$button-theme-accent:  mat-palette($mat-pink, A200, A100, A400);
+$button-theme-warn:    mat-palette($mat-red);
+$button-theme: mat-light-theme($button-theme-primary, $button-theme-accent, $button-theme-warn);
+
+@include mat-button-theme($button-theme);

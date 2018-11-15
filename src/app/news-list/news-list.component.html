@@ -16,7 +16,21 @@
       <p>{{card.description}}</p>
     </mat-card-content>
     <mat-card-actions>
-      <a [href]="card.url" rel="noopener" target="_blank" mat-button color="accent">READ</a>
+      <a [href]="card.url"
+         rel="noopener"
+         target="_blank"
+         mat-button
+         color="primary"
+         (click)="$event.preventDefault()"
+         appShare [shareTitle]="card.title"
+         [shareText]="card.description" [shareUrl]="card.url">
+        <mat-icon>share</mat-icon>
+        SHARE
+      </a>
+      <a [href]="card.url" rel="noopener" target="_blank" mat-button color="primary">
+        <mat-icon>book</mat-icon>
+        READ
+      </a>
     </mat-card-actions>
   </mat-card>
   <mat-spinner [diameter]="40"></mat-spinner>

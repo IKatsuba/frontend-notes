@@ -1,7 +1,7 @@
 {
   "name": "FrontendNotes",
   "short_name": "fn",
-  "theme_color": "#424242",
+  "theme_color": "#C2185B",
   "background_color": "#C2185B",
   "display": "standalone",
   "scope": "/",
