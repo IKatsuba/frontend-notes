@@ -1,9 +1,9 @@
 <div class="scrollable">
-  <mat-card *ngFor="let card of news; trackBy: trackByFn; let i = index;"
-            (appIsVisible)="(i + 1) === news.length && fetch.emit()">
+  <mat-card *ngFor="let card of news; trackBy: trackByFn; let i = index;let show = false;"
+            (appIsVisible)="(i + 1) === news.length && fetch.emit();show = true">
     <mat-card-header>
-      <img mat-card-avatar [src]="card.urlToImage" *ngIf="card.urlToImage" alt="News image">
-      <div mat-card-avatar *ngIf="!card.urlToImage"></div>
+      <img mat-card-avatar [src]="card.urlToImage" *ngIf="card.urlToImage && show" alt="News image">
+      <div mat-card-avatar *ngIf="!card.urlToImage || !show"></div>
       <mat-card-title>
         <a [href]="card.url" rel="noopener" target="_blank">
           {{card.title}}
