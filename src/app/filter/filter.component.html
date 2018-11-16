@@ -10,8 +10,8 @@
   <mat-form-field class="field-sortBy" appearance="outline">
     <mat-label>Sort by</mat-label>
     <mat-select formControlName="sortBy">
-      <mat-option *ngFor="let type of sortBy" [value]="type">
-        {{type}}
+      <mat-option *ngFor="let type of sortBy" [value]="type.value">
+        {{type.title}}
       </mat-option>
     </mat-select>
   </mat-form-field>

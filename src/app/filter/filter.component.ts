@@ -11,7 +11,11 @@ import { tap } from 'rxjs/operators';
 })
 export class FilterComponent {
   public languages = [Languages.RU, Languages.EN];
-  public sortBy = [SortBy.PUBLISHEDAT, SortBy.POPULARITY, SortBy.RELEVANCY];
+  public sortBy = [
+    {value: SortBy.PUBLISHEDAT, title: 'Published at'},
+    {value: SortBy.POPULARITY, title: 'Popularity'},
+    {value: SortBy.RELEVANCY, title: 'Relevancy'},
+  ];
 
   @Input() count: number;
 
