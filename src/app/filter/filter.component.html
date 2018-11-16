@@ -1,13 +1,15 @@
 <form [formGroup]="form">
-  <mat-form-field class="field-language">
-    <mat-select placeholder="Language" formControlName="language">
+  <mat-form-field class="field-language" appearance="outline">
+    <mat-label>Language</mat-label>
+    <mat-select formControlName="language">
       <mat-option *ngFor="let lang of languages" [value]="lang">
         {{lang | uppercase}}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field class="field-sortBy">
-    <mat-select placeholder="Sort by" formControlName="sortBy">
+  <mat-form-field class="field-sortBy" appearance="outline">
+    <mat-label>Sort by</mat-label>
+    <mat-select formControlName="sortBy">
       <mat-option *ngFor="let type of sortBy" [value]="type">
         {{type}}
       </mat-option>

@@ -1,12 +1,31 @@
-mat-card {
-  margin-top: 20px;
-}
-
-.scrollable {
-  max-height: 100%;
-  overflow: auto;
-}
+@import '~@angular/material/theming';
 
 mat-spinner {
   margin: 40px auto;
+}
+
+mat-card {
+  margin-top: 8px;
+  background-color: rgba(#000000, 0.24);
+  &.is-first {
+    border-radius: 24px 24px 0 0;
+  }
+  &.is-last {
+    border-radius: 0 0 24px 24px;
+  }
+
+  mat-card-header {
+    justify-content: space-between;
+  }
+}
+
+.fn-card-image {
+  overflow: hidden;
+  height: 0;
+  padding-top: 56.25%;
+  background-repeat: round;
+}
+
+mat-icon {
+  //color: map_get($mat-pink, 200);
 }

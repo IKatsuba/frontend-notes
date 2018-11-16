@@ -26,8 +26,29 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+$custom-typography: mat-typography-config(
+  $font-family: 'Raleway'
+);
+
+@include angular-material-typography($custom-typography);
+
+$button-theme-primary: mat-palette($mat-pink, 200);
+$button-theme-accent: mat-palette($mat-pink);
+$button-theme-warn: mat-palette($mat-red);
+$button-theme: mat-dark-theme($button-theme-primary, $button-theme-accent, $button-theme-warn);
+
+@include mat-button-theme($button-theme);
+
+$toolbar-theme-primary: mat-palette($mat-gray, 800);
+$toolbar-theme-accent: mat-palette($mat-pink);
+$toolbar-theme-warn: mat-palette($mat-red);
+$toolbar-theme: mat-dark-theme($toolbar-theme-primary, $toolbar-theme-accent, $toolbar-theme-warn);
+
+@include mat-toolbar-theme($toolbar-theme)
+
+
 body {
-  background: map_get($mat-dark-theme-background, background);
+  background-color: map_get($toolbar-theme-primary, default);
 }
 
 mat-form-field {
@@ -40,10 +61,8 @@ a {
 }
 
 .light-icon-link {
-
   width: 32px;
   height: 32px;
-
 }
 
 .app-secondary-text {
@@ -53,16 +72,3 @@ a {
 .toolbar-spacer {
   flex: 1 1 auto;
 }
-
-$custom-typography: mat-typography-config(
-  $font-family: 'Raleway'
-);
-
-@include angular-material-typography($custom-typography);
-
-$button-theme-primary: mat-palette($mat-teal, A400, A200, A700);
-$button-theme-accent: mat-palette($mat-pink, A200, A100, A400);
-$button-theme-warn: mat-palette($mat-red);
-$button-theme: mat-dark-theme($button-theme-primary, $button-theme-accent, $button-theme-warn);
-
-@include mat-button-theme($button-theme);
