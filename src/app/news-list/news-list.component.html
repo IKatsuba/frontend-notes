@@ -1,35 +1,37 @@
-<mat-card *ngFor="let card of news; trackBy: trackByFn; let i = index;let show = false;"
-          (appIsVisible)="(i + 1) === news.length && fetch.emit();show = true"
-          [class.is-first]="i === 0"
-          [class.is-last]="(i + 1) === news.length">
-  <mat-card-header>
-    <mat-card-title>
-      <a [href]="card.url" rel="noopener" target="_blank">
-        {{card.title}}
+<div [@listAnimation]="news?.length">
+  <mat-card *ngFor="let card of news; trackBy: trackByFn; let i = index;let show = false;"
+            (appIsVisible)="(i + 1) === news.length && fetch.emit();show = true"
+            [class.is-first]="i === 0"
+            [class.is-last]="(i + 1) === news.length">
+    <mat-card-header>
+      <mat-card-title>
+        <a [href]="card.url" rel="noopener" target="_blank">
+          {{card.title}}
+        </a>
+      </mat-card-title>
+      <mat-card-subtitle>{{card.publishedAt | date}}, {{card.source.name}}, {{card.author}}</mat-card-subtitle>
+      <a [href]="card.url"
+         rel="noopener"
+         target="_blank"
+         mat-icon-button
+         color="primary"
+         (click)="$event.preventDefault()"
+         appShare [shareTitle]="card.title"
+         [shareText]="card.description" [shareUrl]="card.url">
+        <mat-icon>share</mat-icon>
       </a>
-    </mat-card-title>
-    <mat-card-subtitle>{{card.publishedAt | date}}, {{card.source.name}}, {{card.author}}</mat-card-subtitle>
-    <a [href]="card.url"
-       rel="noopener"
-       target="_blank"
-       mat-icon-button
-       color="primary"
-       (click)="$event.preventDefault()"
-       appShare [shareTitle]="card.title"
-       [shareText]="card.description" [shareUrl]="card.url">
-      <mat-icon>share</mat-icon>
-    </a>
-  </mat-card-header>
-  <div mat-card-image class="fn-card-image"
-       [style.background-image]="'url(' + card.urlToImage + ')'"
-       *ngIf="card.urlToImage && show"></div>
-  <mat-card-content>
-    <p>{{card.description}}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <a [href]="card.url" rel="noopener" target="_blank" mat-button color="primary">
-      READ
-    </a>
-  </mat-card-actions>
-</mat-card>
-<mat-spinner [diameter]="40"></mat-spinner>
+    </mat-card-header>
+    <div mat-card-image class="fn-card-image"
+         [style.background-image]="'url(' + card.urlToImage + ')'"
+         *ngIf="card.urlToImage && show"></div>
+    <mat-card-content>
+      <p>{{card.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a [href]="card.url" rel="noopener" target="_blank" mat-button color="primary">
+        READ
+      </a>
+    </mat-card-actions>
+  </mat-card>
+  <mat-spinner [diameter]="40"></mat-spinner>
+</div>

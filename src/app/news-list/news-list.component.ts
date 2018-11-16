@@ -1,11 +1,25 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Article } from '@katsuba/newsapi';
 import { CdkScrollable } from '@angular/cdk/overlay';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-news-list',
   templateUrl: './news-list.component.html',
-  styleUrls: ['./news-list.component.scss']
+  styleUrls: ['./news-list.component.scss'],
+  animations: [
+    trigger('listAnimation', [
+      transition('* => *', [
+        query(':enter', [
+          style({transform: 'scale(0.5)', opacity: 0}),
+          stagger(300, [
+            animate('1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
+              style({transform: 'scale(1)', opacity: 1}))
+          ])
+        ])
+      ])
+    ])
+  ]
 })
 export class NewsListComponent {
   @Output() public fetch = new EventEmitter<any>();
