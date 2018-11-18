@@ -11,10 +11,10 @@ import { animate, query, stagger, style, transition, trigger } from '@angular/an
     trigger('listAnimation', [
       transition('* => *', [
         query(':enter', [
-          style({transform: 'scale(0.5)', opacity: 0}),
+          style({transform: 'translateY(100%)', opacity: 0}),
           stagger(300, [
-            animate('1s cubic-bezier(.8, -0.6, 0.2, 1.5)',
-              style({transform: 'scale(1)', opacity: 1}))
+            animate('0.7s cubic-bezier(.62,.28,.23,.99)',
+              style({transform: 'translateY(0)', opacity: 1}))
           ])
         ])
       ])
