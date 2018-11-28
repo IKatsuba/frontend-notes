@@ -33,6 +33,7 @@
     "clipboard": "^2.0.4",
     "core-js": "^2.5.4",
     "firebase": "^5.5.9",
+    "firebase-tools": "^6.1.1",
     "hammerjs": "^2.0.8",
     "normalize.css": "^8.0.1",
     "rxjs": "^6.3.3",
