@@ -12,6 +12,7 @@ script:
 
 deploy:
   - provider: script
+    skip_cleanup: true
     script: npx firebase deploy --token $FB_TOKEN
     on:
       branch: master
