@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@import '../../../../node_modules/@angular/material/theming';
 
 mat-spinner {
   margin: 40px auto;
@@ -29,6 +29,3 @@ mat-card {
   background-repeat: round;
 }
 
-mat-icon {
-  //color: map_get($mat-pink, 200);
-}

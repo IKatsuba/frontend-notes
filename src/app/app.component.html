@@ -1,11 +1,1 @@
-<main>
-  <mat-toolbar color="primary">
-    <span class="app-secondary-text secondary-toolbar-text">Frontend</span><span>Notes</span>
-    <span class="toolbar-spacer"></span>
-    <a href="https://github.com/IKatsuba/frontend-notes" target="_blank" rel="noopener" class="light-icon-link">
-      <img src="../assets/icons/GitHub-Mark-Light-32px.png" alt="Link to Github project">
-    </a>
-  </mat-toolbar>
-  <app-filter #filter [count]="count"></app-filter>
-  <app-news-list [news]="news$ | async" (fetch)="fetch()"></app-news-list>
-</main>
+<router-outlet></router-outlet>

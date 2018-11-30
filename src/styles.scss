@@ -47,8 +47,9 @@ $toolbar-theme: mat-dark-theme($toolbar-theme-primary, $toolbar-theme-accent, $t
 @include mat-toolbar-theme($toolbar-theme)
 
 
-body {
+body, mat-sidenav-container.mat-drawer-container {
   background-color: map_get($toolbar-theme-primary, default);
+  min-height: 100vh;
 }
 
 mat-form-field {

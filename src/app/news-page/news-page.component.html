@@ -1,0 +1,6 @@
+<app-page>
+  <div app-page-title><span class="app-secondary-text secondary-toolbar-text">Frontend</span><span>Notes</span></div>
+
+  <app-filter #filter [count]="count"></app-filter>
+  <app-news-list [news]="news$ | async" (fetch)="fetch()"></app-news-list>
+</app-page>

@@ -1,0 +1,30 @@
+<mat-sidenav-container>
+  <mat-sidenav #snav mode="over" [fixedInViewport]="true">
+    <mat-toolbar color="primary" class="drawer__toolbar">
+      <span class="app-secondary-text secondary-toolbar-text">Frontend</span><span>Notes</span>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a href="/about" routerLink="/about" mat-list-item>
+        <mat-icon mat-list-icon>info</mat-icon>
+        About
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <main>
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="snav.open()"><mat-icon>menu</mat-icon></button>
+        <ng-content select="[app-page-title]"></ng-content>
+
+        <span class="toolbar-spacer"></span>
+        <a href="https://github.com/IKatsuba/frontend-notes" target="_blank" rel="noopener" class="light-icon-link">
+          <img src="../assets/icons/GitHub-Mark-Light-32px.png" alt="Link to Github project">
+        </a>
+      </mat-toolbar>
+
+      <ng-content></ng-content>
+
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
