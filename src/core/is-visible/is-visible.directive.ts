@@ -11,7 +11,11 @@ export class IsVisibleDirective implements AfterViewInit {
   constructor(private _element: ElementRef) {
   }
 
-  public ngAfterViewInit(): void {
+  public async ngAfterViewInit(): Promise<void> {
+    if (!(window as any).IntersectionObserver) {
+      await import('intersection-observer');
+    }
+
     this._intersectionObserver = new IntersectionObserver(entries => {
       this.checkForIntersection(entries);
     }, {});
