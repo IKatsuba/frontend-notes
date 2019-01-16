@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  DSN: env.DSN,
+  DSN: null,
   news: env.NEWS,
   fb: env.FB
 };
