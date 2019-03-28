@@ -9,3 +9,5 @@ interface ShareOptions {
 interface Navigator {
   share(options: ShareOptions): Promise<void>;
 }
+
+declare const require: any;

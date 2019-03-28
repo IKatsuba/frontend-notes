@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   DSN: null,
-  news: env.NEWS,
-  fb: env.FB
+  news: require('./config.json').news,
+  fb: require('./config.json').firebase
 };

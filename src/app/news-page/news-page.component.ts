@@ -23,7 +23,7 @@ export class NewsPageComponent implements AfterContentInit {
   public ngAfterContentInit(): void {
     this.news$ = this.filter.changes.pipe(
       debounceTime(1000),
-      mergeMap<EverythingPayload, ArticleResponse>(values => this.news.everything(values)),
+      mergeMap<EverythingPayload, Observable<ArticleResponse>>(values => this.news.everything(values)),
       map((res) => res.articles)
     );
   }
