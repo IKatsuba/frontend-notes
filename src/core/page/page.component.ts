@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-page',
@@ -6,4 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./page.component.scss']
 })
 export class PageComponent {
+  @ViewChild('snav') private snav: MatSidenav;
+
+  constructor(public router: Router, private location: Location) {
+  }
+
+  public get hasPrevHistory(): boolean {
+    return !this.location.isCurrentPathEqualTo('/');
+  }
+
+  public buttonClick() {
+    if (this.hasPrevHistory) {
+      this.location.back();
+    } else {
+      this.snav.open();
+    }
+  }
 }

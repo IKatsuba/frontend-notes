@@ -13,7 +13,9 @@
   <mat-sidenav-content>
     <main>
       <mat-toolbar color="primary" class="page-toolbar">
-        <button mat-icon-button (click)="snav.open()"><mat-icon>menu</mat-icon></button>
+        <button mat-icon-button (click)="buttonClick()">
+          <mat-icon>{{hasPrevHistory ? 'arrow_back' : 'menu'}}</mat-icon>
+        </button>
         <ng-content select="[app-page-title]"></ng-content>
 
         <span class="toolbar-spacer"></span>
