@@ -22,8 +22,8 @@
       </a>
     </mat-card-header>
     <div mat-card-image class="fn-card-image"
-         [style.background-image]="'url(' + card.urlToImage + ')'"
-         *ngIf="card.urlToImage && show"></div>
+         [style.background-image]="(card.urlToImage && show) ? 'url(' + card.urlToImage + ')' : false">
+    </div>
     <mat-card-content>
       <p>{{card.description}}</p>
     </mat-card-content>

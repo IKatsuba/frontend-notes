@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Article } from '@katsuba/newsapi';
 import { CdkScrollable } from '@angular/cdk/overlay';
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import { animate, query, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-news-list',
@@ -11,11 +11,9 @@ import { animate, query, stagger, style, transition, trigger } from '@angular/an
     trigger('listAnimation', [
       transition('* => *', [
         query(':enter', [
-          style({transform: 'translateY(100%)', opacity: 0}),
-          stagger(300, [
-            animate('0.7s cubic-bezier(.62,.28,.23,.99)',
-              style({transform: 'translateY(0)', opacity: 1}))
-          ])
+          style({ transform: 'translateY(100%)', opacity: 0 }),
+          animate('0.7s cubic-bezier(.62,.28,.23,.99)',
+            style({ transform: 'translateY(0)', opacity: 1 }))
         ])
       ])
     ])
