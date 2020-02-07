@@ -1,0 +1,22 @@
+{
+  "npmScope": "fn",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "frontend-notes": {
+      "tags": []
+    },
+    "frontend-notes-e2e": {
+      "tags": [],
+      "implicitDependencies": ["frontend-notes"]
+    }
+  }
+}

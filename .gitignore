@@ -40,4 +40,4 @@ Thumbs.db
 
 .firebase
 
-src/environments/config.json
+apps/frontend-notes/src/environments/.config.json

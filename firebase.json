@@ -1,6 +1,7 @@
 {
   "hosting": {
-    "public": "dist/frontend-notes",
+    "site": "frontend-notes",
+    "public": "dist/apps/frontend-notes",
     "ignore": [
       "firebase.json",
       "**/.*",

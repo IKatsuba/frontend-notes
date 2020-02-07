@@ -1,0 +1,37 @@
+<div [@listAnimation]="news?.length">
+  <mat-card *ngFor="let card of news; trackBy: trackByFn; let i = index;"
+            (appIsVisible)="(i + 1) === news.length && fetch.emit();"
+            [class.is-first]="i === 0"
+            [class.is-last]="(i + 1) === news.length">
+    <mat-card-header>
+      <mat-card-title>
+        <a [href]="card.url" rel="noopener" target="_blank">
+          {{card.title}}
+        </a>
+      </mat-card-title>
+      <mat-card-subtitle>{{card.publishedAt | date}}, {{card.source.name}}, {{card.author}}</mat-card-subtitle>
+      <a [href]="card.url"
+         rel="noopener"
+         target="_blank"
+         mat-icon-button
+         color="primary"
+         (click)="$event.preventDefault()"
+         appShare [shareTitle]="card.title"
+         [shareText]="card.description" [shareUrl]="card.url">
+        <mat-icon>share</mat-icon>
+      </a>
+    </mat-card-header>
+    <div mat-card-image class="fn-card-image"
+         [style.background-image]="(card.urlToImage) ? 'url(' + card.urlToImage + ')' : false">
+    </div>
+    <mat-card-content>
+      <p>{{card.description}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a [href]="card.url" rel="noopener" target="_blank" mat-button color="primary">
+        Read
+      </a>
+    </mat-card-actions>
+  </mat-card>
+  <mat-spinner [diameter]="40"></mat-spinner>
+</div>
