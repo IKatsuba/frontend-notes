@@ -48,7 +48,7 @@
     "intersection-observer": "^0.7.0",
     "ngx-markdown": "^8.2.2",
     "normalize.css": "^8.0.1",
-    "rxjs": "~6.5.4",
+    "rxjs": "~6.6.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },
