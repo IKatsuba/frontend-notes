@@ -61,7 +61,7 @@
     "@nrwl/jest": "8.12.2",
     "@nrwl/workspace": "8.12.2",
     "@types/jest": "24.0.9",
-    "@types/node": "^12.11.1",
+    "@types/node": "^14.0.0",
     "codelyzer": "^5.1.2",
     "cypress": "^3.8.2",
     "dotenv": "6.2.0",
