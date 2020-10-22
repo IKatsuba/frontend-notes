@@ -39,7 +39,7 @@
     "@angular/platform-browser": "^9.0.0",
     "@angular/platform-browser-dynamic": "^9.0.0",
     "@angular/router": "^9.0.0",
-    "@angular/service-worker": "^10.0.0",
+    "@angular/service-worker": "^9.0.0",
     "@katsuba/newsapi": "0.0.6",
     "@nrwl/angular": "8.12.2",
     "@sentry/browser": "^5.12.1",
