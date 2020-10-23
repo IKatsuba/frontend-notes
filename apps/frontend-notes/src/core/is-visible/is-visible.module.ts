@@ -6,7 +6,7 @@ import { IsVisibleDirective } from './is-visible.directive';
   exports: [IsVisibleDirective]
 })
 export class IsVisibleModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders<IsVisibleModule> {
     return {
       ngModule: IsVisibleModule
     };
