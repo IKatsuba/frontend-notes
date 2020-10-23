@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { IsVisibleDirective } from './is-visible.directive';
 
 @NgModule({
@@ -6,4 +6,9 @@ import { IsVisibleDirective } from './is-visible.directive';
   exports: [IsVisibleDirective]
 })
 export class IsVisibleModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: IsVisibleModule
+    };
+  }
 }
